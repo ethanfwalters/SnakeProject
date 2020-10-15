@@ -50,8 +50,8 @@ void draw(){
     }
   }
   printSnake(locXPos, locYPos);
-  //println("xpos = ", xPos, "ypos = ", yPos, "xposa = ", (int)xPosA,"yposa = ", (int)yPosA);
-  if(((xPos - (int)xPosA) < 10 && (xPos - (int)xPosA) > -10) && ((yPos - (int)yPosA) < 10 && (yPos - (int)yPosA) > -10)){
+  println("xpos = ", xPos, "ypos = ", yPos, "xposa = ", (int)xPosA,"yposa = ", (int)yPosA);
+  if(found(xPos,yPos,(int)xPosA,(int)yPosA)){
     hasFound = true;
   }
   if(hasFound){
@@ -63,6 +63,13 @@ void draw(){
   fill(201,32,32);
   rect(xPosA, yPosA, 10, 10);
   
+}
+
+boolean found(int xPos, int yPos, int xPosA, int yPosA){
+  boolean yFound = false;
+  boolean xFound = false;
+   ((xPos - (int)xPosA) < 10 && (xPos - (int)xPosA) > -10) && ((yPos - (int)yPosA) < 10 && (yPos - (int)yPosA) > -10)
+  return true;
 }
 
 void printSnake(int locXPos, int locYPos){
@@ -79,15 +86,3 @@ void printSnake(int locXPos, int locYPos){
     }
   }
 }
-
-//void move(){
-//  x = x +speed;
-//  if(x > width){
-//    x = 0;
-//  }
-//}
-
-//void display(){
-// fill(c);
-// rect(x,y,30,10);
-//}
