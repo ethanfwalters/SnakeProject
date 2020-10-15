@@ -6,7 +6,7 @@ int numSnake = 1;
 int locXPos;
 int locYPos;
 
-
+// I am making this change to test github
 
 
 void setup(){
@@ -19,6 +19,7 @@ void draw(){
   if (keyPressed){
     locXPos = xPos;
     locYPos = yPos;
+    if(frameCount %2==0){
     switch(key){
       case 'a':
       case 'A':
@@ -43,6 +44,9 @@ void draw(){
       case 'p':
         hasFound = true;
         break;
+      default:
+        println("wrong key entered");
+    }
     }
   }
   printSnake(locXPos, locYPos);
@@ -62,18 +66,16 @@ void draw(){
 }
 
 void printSnake(int locXPos, int locYPos){
-  background(0);
   fill(50, 156,52);
+  if(numSnake < 2){
+    background(0);
+  }
   for(int i=0; i< numSnake; i++){
     if(i==0){
     rect(xPos,yPos,20,20);
     }
     else{
-      //locXPos = locXPos - 20;
-      //locYPos = locYPos - 20;
-      println("snake: ", i, "x: ",locXPos,"y: ",locYPos);
-      rect(locXPos,locYPos,20,20);
-      
+      //rect(locXPos,locYPos,20,20);
     }
   }
 }
